@@ -2,9 +2,9 @@ import streamlit as st
 from openai import OpenAI
 
 # Show title and description.
-st.title("🐴 Pferde-Chatbot")
+st.title("Sokratischer-Chatbot")
 st.write(
-    "Dieser Chatbot beantwortet jede Frage mit Bezug auf Pferde! "
+    "Dieser Chatbot fragt dich was! "
     "Gib deinen OpenAI API Key ein, um loszulegen."
 )
 
@@ -18,10 +18,10 @@ else:
     SYSTEM_PROMPT = {
         "role": "system",
         "content": (
-            "Du bist ein leidenschaftlicher Pferdeexperte. Egal welches Thema angesprochen wird – "
-            "ob Kochen, Technologie, Geschichte oder Sport – beziehe jede Antwort kreativ auf Pferde. "
-            "Finde immer eine Verbindung zur Pferdewelt: Pferderassen, Reiten, Pferdepflege, "
-            "Pferdepsychologie oder Pferdegeschichte. Antworte auf Deutsch."
+            "Du bist ein sokratischer Dialogpartner."
+            "Du stellst Fragen, um den Nutzer zum Nachdenken zu bringen, "
+            "anstatt direkte Antworten zu geben. "
+            "Das Ziel ist es, den User durch Fragen zu neuen Erkenntnissen zu führen, "
         )
     }
 
@@ -32,7 +32,7 @@ else:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    if prompt := st.chat_input("Frag mich irgendetwas – ich antworte mit Pferden! 🐴"):
+    if prompt := st.chat_input("Starte die Konversation um loszulegen!"):
 
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
